@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mundial FIFA 2026</title>
+
+  <style>
+    :root{
+      --green:#a8ff00;
+      --green2:#38ff64;
+      --dark:#020806;
+      --card:rgba(4,16,18,.86);
+      --line:rgba(168,255,0,.45);
+      --text:#ffffff;
+      --muted:#c9d6cf;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Arial, Helvetica, sans-serif;
+      background:#010504;
+      color:var(--text);
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:
+        linear-gradient(rgba(0,0,0,.48),rgba(0,0,0,.93)),
+        url("img/fondo.jpg") center/cover no-repeat;
+      z-index:-3;
+    }
+
+    body::after{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:
+        radial-gradient(circle at top,rgba(168,255,0,.17),transparent 36%),
+        radial-gradient(circle at bottom,rgba(0,255,110,.12),transparent 45%),
+        linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.75));
+      z-index:-2;
+      pointer-events:none;
+    }
+
+    .gridGlow{
+      position:fixed;
+      inset:0;
+      background-image:
+        linear-gradient(rgba(168,255,0,.035) 1px, transparent 1px),
+        linear-gradient(90deg,rgba(168,255,0,.035) 1px, transparent 1px);
+      background-size:48px 48px;
+      z-index:-1;
+      pointer-events:none;
+      mask-image:linear-gradient(to bottom,transparent,black 12%,black 70%,transparent);
+    }
+
+    .liveTop{
+      position:sticky;
+      top:0;
+      z-index:50;
+      height:38px;
+      display:flex;
+      align-items:center;
+      white-space:nowrap;
+      overflow:hidden;
+      background:rgba(0,0,0,.78);
+      border-bottom:1px solid rgba(168,255,0,.35);
+      box-shadow:0 0 20px rgba(168,255,0,.14);
+      font-size:12px;
+      font-weight:1000;
+      letter-spacing:.8px;
+      text-transform:uppercase;
+    }
+
+    .liveTop span{
+      display:inline-block;
+      padding-left:100%;
+      animation:topTicker 23s linear infinite;
+    }
+
+    @keyframes topTicker{
+      from{transform:translateX(0)}
+      to{transform:translateX(-100%)}
+    }
+
+    #startScreen{
+      position:fixed;
+      inset:0;
+      z-index:80;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:22px;
+      text-align:center;
+      background:
+        linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.92)),
+        url("img/fondo.jpg") center/cover no-repeat;
+    }
+
+    .startBox{
+      width:min(720px,100%);
+      padding:32px 22px;
+      border-radius:28px;
+      background:rgba(0,0,0,.70);
+      border:1px solid rgba(168,255,0,.45);
+      box-shadow:0 0 45px rgba(168,255,0,.24), inset 0 0 28px rgba(168,255,0,.08);
+      backdrop-filter:blur(8px);
+    }
+
+    .brandLogo{
+      font-size:clamp(30px,9vw,58px);
+      line-height:1;
+      font-weight:1000;
+      font-style:italic;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      color:var(--green);
+      text-shadow:0 0 22px rgba(168,255,0,.55);
+    }
+
+    .brandLogo .white{
+      color:white;
+      text-shadow:0 0 18px rgba(255,255,255,.35);
+    }
+
+    .startBox h1{
+      margin-top:16px;
+      font-size:clamp(34px,9vw,76px);
+      line-height:.9;
+      text-transform:uppercase;
+    }
+
+    .startBox p{
+      margin:18px auto 26px;
+      max-width:560px;
+      color:#e8efe9;
+      line-height:1.45;
+      font-size:16px;
+    }
+
+    .btn{
+      border:none;
+      cursor:pointer;
+      padding:15px 28px;
+      border-radius:999px;
+      color:#061006;
+      background:linear-gradient(135deg,#d6ff00,#4cff00);
+      font-size:15px;
+      font-weight:1000;
+      letter-spacing:.8px;
+      text-transform:uppercase;
+      box-shadow:0 0 24px rgba(168,255,0,.62);
+    }
+
+    #intro{
+      position:fixed;
+      inset:0;
+      z-index:70;
+      display:none;
+      background:#000;
+      align-items:center;
+      justify-content:center;
+    }
+
+    #intro video{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    header{
+      position:relative;
+      padding:54px 16px 0;
+      text-align:center;
+    }
+
+    .heroTitle{
+      margin:auto;
+      max-width:980px;
+    }
+
+    .heroTitle h1{
+      font-size:clamp(46px,13vw,112px);
+      line-height:.85;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      text-shadow:0 0 30px rgba(255,255,255,.22);
+    }
+
+    .heroTitle h1 span{
+      color:var(--green);
+      text-shadow:0 0 26px rgba(168,255,0,.45);
+    }
+
+    .hostCities{
+      margin-top:12px;
+      color:#e8efe9;
+      font-weight:1000;
+      letter-spacing:1px;
+      text-transform:uppercase;
+      font-size:clamp(14px,3.5vw,24px);
+    }
+
+    .countdownBox{
+      margin:26px auto 24px;
+      width:min(620px,92%);
+      padding:16px 12px;
+      border-radius:22px;
+      background:rgba(0,0,0,.58);
+      border:1px solid var(--line);
+      box-shadow:0 0 28px rgba(168,255,0,.20), inset 0 0 24px rgba(0,255,120,.08);
+    }
+
+    .countdownBox h2{
+      color:var(--green);
+      font-size:13px;
+      letter-spacing:1.4px;
+      text-transform:uppercase;
+      margin-bottom:12px;
+    }
+
+    #countdown{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:8px;
+    }
+
+    .timeCell{
+      padding:10px 6px;
+      border-radius:14px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(168,255,0,.22);
+    }
+
+    .timeCell strong{
+      display:block;
+      font-size:clamp(28px,8vw,48px);
+      line-height:1;
+      text-shadow:0 0 18px rgba(255,255,255,.38);
+    }
+
+    .timeCell small{
+      display:block;
+      margin-top:6px;
+      color:#eaf4ec;
+      font-size:11px;
+      font-weight:900;
+      text-transform:uppercase;
+    }
+
+    .brandTicker{
+      width:100%;
+      height:50px;
+      display:flex;
+      align-items:center;
+      overflow:hidden;
+      background:linear-gradient(90deg,rgba(0,0,0,.92),rgba(6,32,10,.92),rgba(0,0,0,.92));
+      border-top:2px solid rgba(168,255,0,.75);
+      border-bottom:2px solid rgba(168,255,0,.75);
+      box-shadow:0 0 28px rgba(168,255,0,.32);
+    }
+
+    .brandTickerTrack{
+      display:flex;
+      align-items:center;
+      gap:28px;
+      white-space:nowrap;
+      animation:brandMove 18s linear infinite;
+    }
+
+    .brandTickerItem{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      flex:0 0 auto;
+      font-size:26px;
+      font-weight:1000;
+      font-style:italic;
+      letter-spacing:1px;
+      color:var(--green);
+      text-transform:uppercase;
+      text-shadow:0 0 14px rgba(168,255,0,.65);
+    }
+
+    .brandTickerItem .bolt{
+      display:inline-grid;
+      place-items:center;
+      width:30px;
+      height:30px;
+      border-radius:50%;
+      border:1px solid rgba(168,255,0,.75);
+      color:var(--green);
+      box-shadow:0 0 12px rgba(168,255,0,.4);
+      font-style:normal;
+    }
+
+    .brandTickerItem .brandWhite{
+      color:white;
+      text-shadow:0 0 12px rgba(255,255,255,.35);
+    }
+
+    @keyframes brandMove{
+      from{transform:translateX(0)}
+      to{transform:translateX(-50%)}
+    }
+
+    main{
+      width:min(1180px,100%);
+      margin:auto;
+      padding:0 12px 90px;
+    }
+
+    .tabs{
+      display:flex;
+      gap:9px;
+      overflow-x:auto;
+      padding:14px 0 16px;
+      scrollbar-width:none;
+    }
+    .tabs::-webkit-scrollbar{display:none}
+
+    .tabBtn{
+      flex:0 0 auto;
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(8,17,19,.82);
+      color:#e9f4ee;
+      padding:12px 16px;
+      border-radius:16px;
+      font-size:12px;
+      font-weight:1000;
+      letter-spacing:.5px;
+      text-transform:uppercase;
+      cursor:pointer;
+      box-shadow:inset 0 0 16px rgba(255,255,255,.03);
+    }
+
+    .tabBtn.active{
+      color:#071006;
+      background:linear-gradient(135deg,#ccff00,#41ff00);
+      border-color:rgba(168,255,0,.9);
+      box-shadow:0 0 18px rgba(168,255,0,.38);
+    }
+
+    .section{
+      display:none;
+      animation:fadeIn .25s ease;
+    }
+    .section.active{display:block}
+
+    @keyframes fadeIn{
+      from{opacity:0;transform:translateY(6px)}
+      to{opacity:1;transform:translateY(0)}
+    }
+
+    .sectionTitle{
+      margin:22px 0 13px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      color:white;
+      font-size:clamp(20px,5vw,34px);
+      text-transform:uppercase;
+      letter-spacing:1px;
+    }
+
+    .sectionTitle::before{
+      content:"";
+      width:6px;
+      height:30px;
+      border-radius:999px;
+      background:var(--green);
+      box-shadow:0 0 16px rgba(168,255,0,.7);
+    }
+
+    .sectionTitle span{flex:1}
+
+    .featured{
+      margin-top:8px;
+      padding:20px;
+      border-radius:26px;
+      background:linear-gradient(145deg,rgba(3,19,20,.92),rgba(0,0,0,.88));
+      border:1px solid rgba(168,255,0,.36);
+      box-shadow:0 0 28px rgba(0,0,0,.5), inset 0 0 36px rgba(168,255,0,.05);
+      overflow:hidden;
+    }
+
+    .matchCard{
+      position:relative;
+      overflow:hidden;
+      padding:16px;
+      border-radius:22px;
+      background:linear-gradient(145deg,rgba(6,24,24,.92),rgba(0,0,0,.88));
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow:0 12px 28px rgba(0,0,0,.38);
+    }
+
+    .matchCard::before{
+      content:"";
+      position:absolute;
+      inset:-50%;
+      background:radial-gradient(circle,rgba(168,255,0,.12),transparent 48%);
+      transform:translate(35%,-30%);
+      pointer-events:none;
+    }
+
+    .matchTop{
+      position:relative;
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      margin-bottom:14px;
+      color:var(--green);
+      font-size:12px;
+      font-weight:1000;
+      text-transform:uppercase;
+      letter-spacing:.7px;
+    }
+
+    .teamsRow{
+      position:relative;
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      gap:12px;
+      align-items:center;
+      text-align:center;
+    }
+
+    .teamBox{
+      display:grid;
+      gap:8px;
+      justify-items:center;
+      min-width:0;
+    }
+
+    .flagImg{
+      width:64px;
+      height:44px;
+      object-fit:cover;
+      border-radius:10px;
+      box-shadow:0 0 16px rgba(255,255,255,.16);
+      background:#111;
+    }
+
+    .teamName{
+      width:100%;
+      font-size:clamp(16px,4.8vw,28px);
+      font-weight:1000;
+      text-transform:uppercase;
+      line-height:1;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .scoreBox{
+      display:grid;
+      place-items:center;
+      gap:4px;
+      min-width:76px;
+    }
+
+    .score{
+      color:var(--green);
+      font-size:clamp(28px,8vw,48px);
+      line-height:1;
+      font-weight:1000;
+      text-shadow:0 0 18px rgba(168,255,0,.4);
+    }
+
+    .vsText{
+      width:56px;
+      height:56px;
+      display:grid;
+      place-items:center;
+      border-radius:50%;
+      border:1px solid rgba(168,255,0,.7);
+      color:var(--green);
+      font-weight:1000;
+      box-shadow:0 0 22px rgba(168,255,0,.35);
+    }
+
+    .matchMeta{
+      position:relative;
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:8px;
+      margin-top:16px;
+    }
+
+    .pill{
+      padding:7px 10px;
+      border-radius:999px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+      color:#eaf4ec;
+      font-size:12px;
+      font-weight:800;
+    }
+
+    .status{
+      color:#071006;
+      background:linear-gradient(135deg,#ccff00,#41ff00);
+      border-color:rgba(168,255,0,.9);
+      font-weight:1000;
+    }
+
+    .liveStatus{
+      color:white;
+      background:linear-gradient(135deg,#ff1d1d,#ff7300);
+      border-color:rgba(255,70,70,.7);
+      box-shadow:0 0 16px rgba(255,60,20,.35);
+    }
+
+    .finalStatus{
+      color:white;
+      background:linear-gradient(135deg,#28546a,#101a22);
+    }
+
+    .cardsGrid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:12px;
+    }
+
+    .compactCard .flagImg{
+      width:42px;
+      height:30px;
+      border-radius:7px;
+    }
+
+    .compactTeam{
+      position:relative;
+      display:grid;
+      grid-template-columns:auto 1fr auto;
+      align-items:center;
+      gap:9px;
+      padding:8px;
+      border-radius:14px;
+      background:rgba(255,255,255,.055);
+      margin-top:7px;
+    }
+
+    .compactTeam strong{
+      min-width:0;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+      font-size:14px;
+      text-transform:uppercase;
+    }
+
+    .compactGoal{
+      color:var(--green);
+      font-size:20px;
+      font-weight:1000;
+    }
+
+    .details{
+      position:relative;
+      display:grid;
+      gap:5px;
+      margin-top:12px;
+      color:#dfe9e1;
+      font-size:12px;
+      line-height:1.28;
+    }
+
+    .groupBlock{
+      margin-bottom:18px;
+      padding:12px;
+      border-radius:22px;
+      background:rgba(0,0,0,.30);
+      border:1px solid rgba(168,255,0,.13);
+    }
+
+    .groupTitle{
+      margin-bottom:12px;
+      padding:11px 13px;
+      border-radius:16px;
+      background:linear-gradient(90deg,rgba(168,255,0,.22),rgba(255,255,255,.025));
+      color:var(--green);
+      font-size:18px;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      border:1px solid rgba(168,255,0,.22);
+    }
+
+    .standingsWrap{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:12px;
+    }
+
+    .standingCard{
+      padding:14px;
+      border-radius:20px;
+      background:rgba(2,14,15,.86);
+      border:1px solid rgba(168,255,0,.22);
+      box-shadow:0 8px 24px rgba(0,0,0,.35);
+      overflow:auto;
+    }
+
+    .standingCard h3{
+      color:var(--green);
+      margin-bottom:10px;
+      text-transform:uppercase;
+      font-size:16px;
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      font-size:13px;
+      min-width:360px;
+    }
+
+    th,td{
+      padding:8px 5px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      text-align:center;
+      white-space:nowrap;
+    }
+
+    th{
+      color:#b9c5bd;
+      font-size:11px;
+      text-transform:uppercase;
+    }
+
+    td.teamTd{
+      text-align:left;
+      font-weight:900;
+      display:flex;
+      align-items:center;
+      gap:7px;
+    }
+
+    td.teamTd img{
+      width:24px;
+      height:17px;
+      object-fit:cover;
+      border-radius:4px;
+    }
+
+    .qualified{
+      color:var(--green);
+    }
+
+    .notice{
+      margin:30px auto 0;
+      padding:18px;
+      border-radius:22px;
+      background:rgba(0,0,0,.54);
+      border:1px solid rgba(168,255,0,.24);
+      color:#dfe9e1;
+      text-align:center;
+      line-height:1.45;
+      font-size:14px;
+    }
+
+    .loading,.error{
+      padding:18px;
+      border-radius:18px;
+      background:rgba(0,0,0,.55);
+      border:1px solid rgba(255,255,255,.12);
+      color:#eaf4ec;
+      text-align:center;
+    }
+
+    footer{
+      padding:34px 16px 42px;
+      text-align:center;
+      color:#dfe9e1;
+      line-height:1.75;
+      background:rgba(0,0,0,.42);
+      border-top:1px solid rgba(168,255,0,.18);
+      font-size:14px;
+    }
+
+    footer strong{
+      color:var(--green);
+      font-weight:1000;
+      text-transform:uppercase;
+    }
+
+    .bottomNav{
+      position:fixed;
+      left:0;
+      right:0;
+      bottom:0;
+      z-index:45;
+      display:none;
+      grid-template-columns:repeat(5,1fr);
+      gap:2px;
+      padding:7px 6px 8px;
+      background:rgba(0,0,0,.86);
+      border-top:1px solid rgba(168,255,0,.22);
+      backdrop-filter:blur(10px);
+    }
+
+    .bottomNav button{
+      border:0;
+      background:transparent;
+      color:#dce8df;
+      font-size:10px;
+      font-weight:900;
+      text-transform:uppercase;
+      display:grid;
+      gap:3px;
+      place-items:center;
+      cursor:pointer;
+    }
+
+    .bottomNav button b{
+      font-size:20px;
+      line-height:1;
+    }
+
+    .bottomNav button.active{
+      color:var(--green);
+    }
+
+    @media(max-width:720px){
+      .liveTop{height:34px;font-size:10px}
+      header{padding-top:34px}
+      .hostCities{font-size:13px}
+      .brandTicker{height:44px}
+      .brandTickerItem{font-size:21px}
+      .tabs{padding-left:2px}
+      .tabBtn{padding:11px 13px;font-size:11px;border-radius:14px}
+      .teamsRow{grid-template-columns:1fr auto 1fr;gap:7px}
+      .flagImg{width:54px;height:38px}
+      .vsText{width:48px;height:48px}
+      .scoreBox{min-width:58px}
+      .cardsGrid{grid-template-columns:1fr}
+      main{padding-bottom:92px}
+      .bottomNav{display:grid}
+      footer{padding-bottom:84px}
+    }
+
+    @media(max-width:430px){
+      .heroTitle h1{font-size:50px}
+      .countdownBox{width:100%;border-radius:18px}
+      #countdown{gap:5px}
+      .timeCell strong{font-size:29px}
+      .timeCell small{font-size:9px}
+      .featured{padding:12px;border-radius:22px}
+      .matchCard{padding:13px;border-radius:19px}
+      .teamName{font-size:14px}
+      .matchTop{font-size:10px}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="gridGlow"></div>
+
+  <script>
+    /*
+      ============================================================
+      DATOS EDITABLES DEL CLIENTE
+      Cambiá SOLO estas líneas para crear una versión nueva.
+      ============================================================
+    */
+    const CONFIG = {
+      NEGOCIO: "LIBRERIA FONROUGE",
+      INSTAGRAM: "@LIBRERIAFONROUGE",
+      TELEFONO: "011 4342-2652",
+      DIRECCION: "FONROUGE137",
+      LOCALIDAD: "Lomas de Zamora",
+
+      /*
+        Para la carpeta maestra dejá:
+        FIXTURE_URL: "fixture.json"
+
+        Para clientes externos que deben leer el fixture maestro:
+        FIXTURE_URL: "https://TU_USUARIO.github.io/proyecto-fixture/fixture.json"
+      */
+      FIXTURE_URL: "fixture.json",
+
+      TITULO: "Mundial FIFA 2026™",
+      SUBTITULO: "EE.UU. · México · Canadá",
+      FECHA_INICIO_MUNDIAL: "2026-06-11T15:00:00"
+    };
+  </script>
+
+  <div class="liveTop" id="liveTop">
+    <span>⚽ Cargando próximo partido...</span>
+  </div>
+
+  <section id="startScreen">
+    <div class="startBox">
+      <div class="brandLogo" id="startBrand"></div>
+      <h1>Mundial<br><span style="color:var(--green)">2026</span></h1>
+      <p>Fixture completo, resultados, tablas automáticas y partidos destacados en una experiencia mobile premium.</p>
+      <button class="btn" id="enterBtn">Entrar al Mundial</button>
+    </div>
+  </section>
+
+  <section id="intro">
+    <video id="introVideo" src="video/intro.mp4" playsinline></video>
+  </section>
+
+  <header>
+    <div class="heroTitle">
+      <h1>Mundial FIFA <span>2026</span><sup style="font-size:.35em">™</sup></h1>
+      <div class="hostCities">EE.UU. · MÉXICO · CANADÁ</div>
+    </div>
+
+    <div class="countdownBox">
+      <h2>Cuenta regresiva al Mundial</h2>
+      <div id="countdown">Cargando...</div>
+    </div>
+  </header>
+
+  <div class="brandTicker" aria-label="Barra de marca">
+    <div class="brandTickerTrack" id="brandTickerTrack"></div>
+  </div>
+
+  <main>
+    <nav class="tabs">
+      <button class="tabBtn active" data-tab="destacado">⭐ Destacado</button>
+      <button class="tabBtn" data-tab="argentina">🇦🇷 Argentina</button>
+      <button class="tabBtn" data-tab="tablas">🏆 Tablas</button>
+      <button class="tabBtn" data-tab="fixture">📅 Fixture</button>
+      <button class="tabBtn" data-tab="final">🔗 Fase final</button>
+    </nav>
+
+    <section class="section active" id="tab-destacado">
+      <h2 class="sectionTitle"><span>Próximo partido</span></h2>
+      <div class="featured" id="featuredMatch"><div class="loading">Cargando partido destacado...</div></div>
+    </section>
+
+    <section class="section" id="tab-argentina">
+      <h2 class="sectionTitle"><span>Partidos de Argentina</span></h2>
+      <div id="selectedMatches"><div class="loading">Cargando partidos de Argentina...</div></div>
+    </section>
+
+    <section class="section" id="tab-tablas">
+      <h2 class="sectionTitle"><span>Tablas de posiciones</span></h2>
+      <div id="standings"><div class="loading">Calculando tablas...</div></div>
+    </section>
+
+    <section class="section" id="tab-fixture">
+      <h2 class="sectionTitle"><span>Fixture completo</span></h2>
+      <div id="groupStage"><div class="loading">Cargando fixture completo...</div></div>
+    </section>
+
+    <section class="section" id="tab-final">
+      <h2 class="sectionTitle"><span>Fase final</span></h2>
+      <div id="knockoutStage"><div class="loading">Cargando fase final...</div></div>
+    </section>
+
+    <div class="notice">
+      Los resultados se cargan desde <strong>fixture.json</strong>. Cuando actualices goles y estado, las tablas se recalculan automáticamente.
+    </div>
+  </main>
+
+  <footer id="footerData"></footer>
+
+  <nav class="bottomNav">
+    <button class="bottomBtn active" data-tab="destacado"><b>⌂</b>Inicio</button>
+    <button class="bottomBtn" data-tab="argentina"><b>🇦🇷</b>Arg</button>
+    <button class="bottomBtn" data-tab="tablas"><b>▥</b>Tablas</button>
+    <button class="bottomBtn" data-tab="fixture"><b>⚽</b>Partidos</button>
+    <button class="bottomBtn" data-tab="final"><b>⋯</b>Final</button>
+  </nav>
+
+  <script>
+    const countryCodes = {
+      "México":"mx","Sudáfrica":"za","República de Corea":"kr","Corea del Sur":"kr","República Checa":"cz",
+      "Canadá":"ca","Bosnia y Herzegovina":"ba","Estados Unidos":"us","USA":"us","Paraguay":"py",
+      "Catar":"qa","Qatar":"qa","Suiza":"ch","Brasil":"br","Marruecos":"ma","Haití":"ht",
+      "Escocia":"gb-sct","Alemania":"de","Curazao":"cw","Países Bajos":"nl","Japón":"jp",
+      "España":"es","Cabo Verde":"cv","Argentina":"ar","Argelia":"dz","Inglaterra":"gb-eng",
+      "Croacia":"hr","Costa de Marfil":"ci","Uruguay":"uy","Austria":"at","Ghana":"gh",
+      "Suecia":"se","Jordania":"jo","Francia":"fr","Senegal":"sn","Noruega":"no","Australia":"au",
+      "Turquía":"tr","Bélgica":"be","Irán":"ir","Nueva Zelanda":"nz","Portugal":"pt","Italia":"it",
+      "Arabia Saudita":"sa","Egipto":"eg","Irak":"iq","Uzbekistán":"uz","Colombia":"co",
+      "Panamá":"pa","Ecuador":"ec","Túnez":"tn","República Democrática del Congo":"cd"
+    };
+
+    function applyBranding(){
+      document.title = `${CONFIG.NEGOCIO} · Mundial FIFA 2026`;
+      const brandHtml = `<span class="white">⚡</span>${CONFIG.NEGOCIO}`;
+      document.getElementById("startBrand").innerHTML = brandHtml;
+
+      const ticker = document.getElementById("brandTickerTrack");
+      const item = `<span class="brandTickerItem"><span class="bolt">⚡</span><span class="brandWhite">${CONFIG.NEGOCIO}</span></span>`;
+      ticker.innerHTML = Array(18).fill(item).join("");
+
+      document.getElementById("footerData").innerHTML = `
+        <p><strong>${CONFIG.NEGOCIO}</strong></p>
+        <p>${CONFIG.DIRECCION} · ${CONFIG.LOCALIDAD} · Tel: ${CONFIG.TELEFONO}</p>
+        <p>Instagram: <strong>${CONFIG.INSTAGRAM}</strong></p>
+      `;
+    }
+
+    const enterBtn = document.getElementById("enterBtn");
+    const startScreen = document.getElementById("startScreen");
+    const intro = document.getElementById("intro");
+    const introVideo = document.getElementById("introVideo");
+
+    enterBtn.addEventListener("click", async () => {
+      startScreen.style.display = "none";
+      intro.style.display = "flex";
+      try{
+        introVideo.muted = false;
+        introVideo.volume = 1;
+        await introVideo.play();
+      }catch(e){
+        introVideo.muted = true;
+        introVideo.play().catch(()=>intro.style.display="none");
+      }
+    });
+
+    introVideo.addEventListener("ended", () => intro.style.display = "none");
+    introVideo.addEventListener("click", () => {
+      introVideo.pause();
+      intro.style.display = "none";
+    });
+
+    function activateTab(tab){
+      document.querySelectorAll(".section").forEach(s => s.classList.remove("active"));
+      document.querySelectorAll(".tabBtn,.bottomBtn").forEach(b => b.classList.remove("active"));
+      document.getElementById(`tab-${tab}`)?.classList.add("active");
+      document.querySelectorAll(`[data-tab="${tab}"]`).forEach(b => b.classList.add("active"));
+    }
+
+    document.querySelectorAll(".tabBtn,.bottomBtn").forEach(btn=>{
+      btn.addEventListener("click",()=>activateTab(btn.dataset.tab));
+    });
+
+    function getValue(match, keys, fallback = ""){
+      for(const key of keys){
+        if(match[key] !== undefined && match[key] !== null && match[key] !== "") return match[key];
+      }
+      return fallback;
+    }
+
+    function getTeamOne(match){ return getValue(match, ["local","equipo1","team1","home","homeTeam"], "Equipo 1"); }
+    function getTeamTwo(match){ return getValue(match, ["visitante","equipo2","team2","away","awayTeam"], "Equipo 2"); }
+    function getDateValue(match){ return getValue(match, ["fecha","date","dia"], ""); }
+    function getTimeValue(match){ return getValue(match, ["hora","time"], "A confirmar"); }
+
+    function slugFallback(team){
+      return "https://placehold.co/80x54/081011/a8ff00?text=" + encodeURIComponent(team.slice(0,3).toUpperCase());
+    }
+
+    function flagUrl(team){
+      const code = countryCodes[team];
+      if(!code) return slugFallback(team);
+      return `https://flagcdn.com/w160/${code}.png`;
+    }
+
+    function flagImg(team, cls="flagImg"){
+      return `<img class="${cls}" src="${flagUrl(team)}" alt="${team}" loading="lazy" onerror="this.src='${slugFallback(team)}'">`;
+    }
+
+    function getPhase(match){
+      const raw = String(getValue(match, ["fase","phase","instancia","round"], "Fase de grupos")).toLowerCase();
+      if(raw.includes("dieciseis") || raw.includes("32")) return "Dieciseisavos";
+      if(raw.includes("octav")) return "Octavos";
+      if(raw.includes("cuart")) return "Cuartos";
+      if(raw.includes("semi")) return "Semifinales";
+      if(raw.includes("final")) return "Final";
+      return "Fase de grupos";
+    }
+
+    function formatDate(dateString){
+      if(!dateString) return "Fecha a confirmar";
+      const date = new Date(dateString + "T00:00:00");
+      if(isNaN(date.getTime())) return dateString;
+      return date.toLocaleDateString("es-AR", {weekday:"short",day:"2-digit",month:"short",year:"numeric"});
+    }
+
+    function getDateTime(match){
+      const date = getDateValue(match);
+      const time = getTimeValue(match);
+      let parsed = new Date(date + "T" + time);
+      if(isNaN(parsed.getTime())) parsed = new Date(date + "T00:00:00");
+      return parsed;
+    }
+
+    function sortMatches(a,b){ return getDateTime(a)-getDateTime(b); }
+    function isGroupStage(match){ return getPhase(match)==="Fase de grupos"; }
+    function isKnockout(match){ return getPhase(match)!=="Fase de grupos"; }
+    function isSelected(match){ return getTeamOne(match)==="Argentina" || getTeamTwo(match)==="Argentina"; }
+
+    function hasScore(match){
+      return match.golesLocal !== undefined && match.golesLocal !== null && match.golesVisitante !== undefined && match.golesVisitante !== null;
+    }
+
+    function statusClass(match){
+      const st = String(getValue(match, ["estado","status"], "Programado")).toUpperCase();
+      if(st.includes("LIVE") || st.includes("VIVO")) return "liveStatus";
+      if(st.includes("FINAL")) return "finalStatus";
+      return "status";
+    }
+
+    function getUpcomingMatch(matches){
+      const now = new Date();
+      const future = matches.filter(m => getDateTime(m) >= now).sort(sortMatches);
+      return future[0] || [...matches].sort(sortMatches)[0];
+    }
+
+    function scoreMarkup(match){
+      if(hasScore(match)) return `<div class="score">${match.golesLocal} - ${match.golesVisitante}</div>`;
+      return `<div class="vsText">VS</div>`;
+    }
+
+    function renderFeatured(match){
+      const container = document.getElementById("featuredMatch");
+      if(!match){
+        container.innerHTML = `<div class="error">No hay partidos cargados.</div>`;
+        return;
+      }
+      const t1 = getTeamOne(match);
+      const t2 = getTeamTwo(match);
+      container.innerHTML = `
+        <article class="matchCard">
+          <div class="matchTop">
+            <span>${getValue(match, ["grupo","group"], getPhase(match))}</span>
+            <span class="${statusClass(match)} pill">${getValue(match, ["estado","status"], "Programado")} ${getValue(match, ["minuto"], "")}</span>
+          </div>
+
+          <div class="teamsRow">
+            <div class="teamBox">
+              ${flagImg(t1)}
+              <div class="teamName">${t1}</div>
+            </div>
+
+            <div class="scoreBox">
+              ${scoreMarkup(match)}
+            </div>
+
+            <div class="teamBox">
+              ${flagImg(t2)}
+              <div class="teamName">${t2}</div>
+            </div>
+          </div>
+
+          <div class="matchMeta">
+            <span class="pill">${formatDate(getDateValue(match))}</span>
+            <span class="pill">${getTimeValue(match)}</span>
+            <span class="pill">${getValue(match, ["estadio","stadium"], "Estadio a confirmar")}</span>
+            <span class="pill">${getValue(match, ["ciudad","city"], "Sede a confirmar")}</span>
+          </div>
+        </article>
+      `;
+    }
+
+    function renderCards(matches){
+      if(!matches.length) return `<div class="error">No hay partidos cargados para esta sección.</div>`;
+      return `<div class="cardsGrid">
+        ${matches.map(match=>{
+          const t1 = getTeamOne(match);
+          const t2 = getTeamTwo(match);
+          return `
+            <article class="matchCard compactCard">
+              <div class="matchTop">
+                <span>${getValue(match, ["grupo","group"], getPhase(match))}</span>
+                <span>${formatDate(getDateValue(match))}</span>
+              </div>
+
+              <div class="compactTeam">
+                ${flagImg(t1)}
+                <strong>${t1}</strong>
+                <span class="compactGoal">${hasScore(match) ? match.golesLocal : ""}</span>
+              </div>
+
+              <div class="compactTeam">
+                ${flagImg(t2)}
+                <strong>${t2}</strong>
+                <span class="compactGoal">${hasScore(match) ? match.golesVisitante : ""}</span>
+              </div>
+
+              <div class="details">
+                <div>🕘 <strong>${getTimeValue(match)}</strong></div>
+                <div>🏟️ ${getValue(match, ["estadio","stadium"], "A confirmar")}</div>
+                <div>📍 ${getValue(match, ["ciudad","city"], "A confirmar")}</div>
+              </div>
+
+              <div class="matchMeta">
+                <span class="${statusClass(match)} pill">${getValue(match, ["estado","status"], "Programado")} ${getValue(match, ["minuto"], "")}</span>
+              </div>
+            </article>
+          `;
+        }).join("")}
+      </div>`;
+    }
+
+    function renderGroupedByGroup(matches){
+      if(!matches.length) return `<div class="error">No hay partidos cargados para esta sección.</div>`;
+      const groups = {};
+      matches.forEach(match=>{
+        const groupName = getValue(match, ["grupo","group"], "Sin grupo");
+        if(!groups[groupName]) groups[groupName] = [];
+        groups[groupName].push(match);
+      });
+      return Object.keys(groups)
+        .sort((a,b)=>a.localeCompare(b,"es",{numeric:true}))
+        .map(groupName=>`
+          <div class="groupBlock">
+            <h3 class="groupTitle">${groupName}</h3>
+            ${renderCards(groups[groupName].sort(sortMatches))}
+          </div>
+        `).join("");
+    }
+
+    function updateLiveTop(match){
+      const liveTop = document.getElementById("liveTop");
+      if(!match){
+        liveTop.innerHTML = `<span>⚽ ${CONFIG.NEGOCIO} · FIFA WORLD CUP 2026™</span>`;
+        return;
+      }
+      const t1 = getTeamOne(match);
+      const t2 = getTeamTwo(match);
+      liveTop.innerHTML = `<span>⚽ ${t1} vs ${t2} · ${formatDate(getDateValue(match))} · ${getTimeValue(match)} · ${getValue(match, ["estado"], "Programado")} · FIFA WORLD CUP 2026™ · ${CONFIG.NEGOCIO}</span>`;
+    }
+
+    function updateCountdown(){
+      const worldCupDate = new Date(CONFIG.FECHA_INICIO_MUNDIAL);
+      const now = new Date();
+      const diff = worldCupDate - now;
+      const countdown = document.getElementById("countdown");
+
+      if(diff <= 0){
+        countdown.innerHTML = `<div class="timeCell" style="grid-column:1/-1"><strong>¡YA COMENZÓ!</strong><small>Mundial 2026</small></div>`;
+        return;
+      }
+
+      const days = Math.floor(diff/(1000*60*60*24));
+      const hours = Math.floor((diff/(1000*60*60))%24);
+      const minutes = Math.floor((diff/(1000*60))%60);
+      const seconds = Math.floor((diff/1000)%60);
+
+      countdown.innerHTML = `
+        <div class="timeCell"><strong>${days}</strong><small>Días</small></div>
+        <div class="timeCell"><strong>${hours}</strong><small>Horas</small></div>
+        <div class="timeCell"><strong>${minutes}</strong><small>Minutos</small></div>
+        <div class="timeCell"><strong>${seconds}</strong><small>Segundos</small></div>
+      `;
+    }
+
+    function buildStandings(matches){
+      const groupMatches = matches.filter(isGroupStage);
+      const groups = {};
+
+      groupMatches.forEach(match=>{
+        const group = getValue(match, ["grupo","group"], "Sin grupo");
+        const t1 = getTeamOne(match);
+        const t2 = getTeamTwo(match);
+        if(!groups[group]) groups[group] = {};
+        [t1,t2].forEach(t=>{
+          if(!groups[group][t]){
+            groups[group][t] = {team:t, pj:0, pg:0, pe:0, pp:0, gf:0, gc:0, dg:0, pts:0};
+          }
+        });
+
+        if(hasScore(match)){
+          const a = groups[group][t1];
+          const b = groups[group][t2];
+          const g1 = Number(match.golesLocal);
+          const g2 = Number(match.golesVisitante);
+
+          a.pj++; b.pj++;
+          a.gf += g1; a.gc += g2;
+          b.gf += g2; b.gc += g1;
+
+          if(g1 > g2){ a.pg++; b.pp++; a.pts += 3; }
+          else if(g2 > g1){ b.pg++; a.pp++; b.pts += 3; }
+          else { a.pe++; b.pe++; a.pts++; b.pts++; }
+
+          a.dg = a.gf - a.gc;
+          b.dg = b.gf - b.gc;
+        }
+      });
+
+      const orderedGroups = Object.keys(groups).sort((a,b)=>a.localeCompare(b,"es",{numeric:true}));
+
+      return `<div class="standingsWrap">
+        ${orderedGroups.map(group=>{
+          const rows = Object.values(groups[group]).sort((a,b)=>
+            b.pts-a.pts || b.dg-a.dg || b.gf-a.gf || a.team.localeCompare(b.team,"es")
+          );
+          return `
+            <div class="standingCard">
+              <h3>${group}</h3>
+              <table>
+                <thead>
+                  <tr>
+                    <th>#</th><th style="text-align:left">Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>DG</th><th>PTS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${rows.map((r,i)=>`
+                    <tr class="${i<2 ? "qualified" : ""}">
+                      <td>${i+1}</td>
+                      <td class="teamTd">${flagImg(r.team)} ${r.team}</td>
+                      <td>${r.pj}</td>
+                      <td>${r.pg}</td>
+                      <td>${r.pe}</td>
+                      <td>${r.pp}</td>
+                      <td>${r.gf}</td>
+                      <td>${r.gc}</td>
+                      <td>${r.dg > 0 ? "+"+r.dg : r.dg}</td>
+                      <td><strong>${r.pts}</strong></td>
+                    </tr>
+                  `).join("")}
+                </tbody>
+              </table>
+            </div>
+          `;
+        }).join("")}
+      </div>`;
+    }
+
+    async function loadFixture(){
+      try{
+        const separator = CONFIG.FIXTURE_URL.includes("?") ? "&" : "?";
+        const response = await fetch(CONFIG.FIXTURE_URL + separator + "v=" + Date.now());
+        if(!response.ok) throw new Error("No se pudo cargar fixture.json");
+
+        const data = await response.json();
+        const matches = Array.isArray(data) ? data : data.partidos || data.matches || data.fixture || [];
+        const ordered = [...matches].sort(sortMatches);
+
+        const selected = ordered.filter(isSelected);
+        const groupStage = ordered.filter(isGroupStage);
+        const knockout = ordered.filter(isKnockout);
+        const nextMatch = getUpcomingMatch(ordered);
+
+        renderFeatured(nextMatch);
+        updateLiveTop(nextMatch);
+
+        document.getElementById("selectedMatches").innerHTML = renderCards(selected);
+        document.getElementById("groupStage").innerHTML = renderGroupedByGroup(groupStage);
+        document.getElementById("knockoutStage").innerHTML = renderCards(knockout);
+        document.getElementById("standings").innerHTML = buildStandings(ordered);
+
+      }catch(error){
+        console.error(error);
+        document.getElementById("featuredMatch").innerHTML = `<div class="error">No se pudo leer fixture.json.</div>`;
+        document.getElementById("selectedMatches").innerHTML = `<div class="error">Revisá que la ruta FIXTURE_URL sea correcta.</div>`;
+        document.getElementById("groupStage").innerHTML = `<div class="error">Fixture no disponible.</div>`;
+        document.getElementById("knockoutStage").innerHTML = `<div class="error">Fase final no disponible.</div>`;
+        document.getElementById("standings").innerHTML = `<div class="error">No se pudieron calcular las tablas.</div>`;
+      }
+    }
+
+    applyBranding();
+    updateCountdown();
+    setInterval(updateCountdown,1000);
+    loadFixture();
+    setInterval(loadFixture, 60000);
+  </script>
+</body>
+</html>

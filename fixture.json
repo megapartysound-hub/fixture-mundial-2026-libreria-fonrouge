@@ -1,0 +1,90 @@
+[
+  {"fase":"Fase de grupos","grupo":"Grupo A","fecha":"2026-06-11","hora":"15:00","local":"México","visitante":"Sudáfrica","estadio":"Estadio Azteca","ciudad":"Ciudad de México","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo A","fecha":"2026-06-11","hora":"22:00","local":"República de Corea","visitante":"República Checa","estadio":"Estadio Akron","ciudad":"Guadalajara","estado":"Programado"},
+
+  {"fase":"Fase de grupos","grupo":"Grupo B","fecha":"2026-06-12","hora":"15:00","local":"Canadá","visitante":"Bosnia y Herzegovina","estadio":"BMO Field","ciudad":"Toronto","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo D","fecha":"2026-06-12","hora":"21:00","local":"Estados Unidos","visitante":"Paraguay","estadio":"SoFi Stadium","ciudad":"Los Ángeles","estado":"Programado"},
+
+  {"fase":"Fase de grupos","grupo":"Grupo B","fecha":"2026-06-13","hora":"15:00","local":"Catar","visitante":"Suiza","estadio":"Levi’s Stadium","ciudad":"San Francisco Bay Area","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo C","fecha":"2026-06-13","hora":"18:00","local":"Brasil","visitante":"Marruecos","estadio":"MetLife Stadium","ciudad":"Nueva York / Nueva Jersey","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo C","fecha":"2026-06-13","hora":"21:00","local":"Haití","visitante":"Escocia","estadio":"Gillette Stadium","ciudad":"Boston","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo D","fecha":"2026-06-13","hora":"00:00","local":"Australia","visitante":"Turquía","estadio":"BC Place","ciudad":"Vancouver","estado":"Programado"},
+
+  {"fase":"Fase de grupos","grupo":"Grupo E","fecha":"2026-06-14","hora":"13:00","local":"Alemania","visitante":"Curazao","estadio":"NRG Stadium","ciudad":"Houston","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo F","fecha":"2026-06-14","hora":"16:00","local":"Países Bajos","visitante":"Japón","estadio":"AT&T Stadium","ciudad":"Dallas","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo E","fecha":"2026-06-14","hora":"19:00","local":"Costa de Marfil","visitante":"Ecuador","estadio":"Lincoln Financial Field","ciudad":"Filadelfia","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo F","fecha":"2026-06-14","hora":"22:00","local":"Suecia","visitante":"Túnez","estadio":"Estadio BBVA","ciudad":"Monterrey","estado":"Programado"},
+
+  {"fase":"Fase de grupos","grupo":"Grupo H","fecha":"2026-06-15","hora":"12:00","local":"España","visitante":"Cabo Verde","estadio":"Mercedes-Benz Stadium","ciudad":"Atlanta","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo G","fecha":"2026-06-15","hora":"15:00","local":"Bélgica","visitante":"Egipto","estadio":"Lumen Field","ciudad":"Seattle","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo H","fecha":"2026-06-15","hora":"18:00","local":"Arabia Saudita","visitante":"Uruguay","estadio":"Hard Rock Stadium","ciudad":"Miami","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo G","fecha":"2026-06-15","hora":"21:00","local":"Irán","visitante":"Nueva Zelanda","estadio":"SoFi Stadium","ciudad":"Los Ángeles","estado":"Programado"},
+
+  {"fase":"Fase de grupos","grupo":"Grupo I","fecha":"2026-06-16","hora":"15:00","local":"Francia","visitante":"Senegal","estadio":"MetLife Stadium","ciudad":"Nueva York / Nueva Jersey","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo I","fecha":"2026-06-16","hora":"18:00","local":"Irak","visitante":"Noruega","estadio":"Gillette Stadium","ciudad":"Boston","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo J","fecha":"2026-06-16","hora":"21:00","local":"Argentina","visitante":"Argelia","estadio":"Arrowhead Stadium","ciudad":"Kansas City","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo J","fecha":"2026-06-16","hora":"00:00","local":"Austria","visitante":"Jordania","estadio":"Levi’s Stadium","ciudad":"San Francisco Bay Area","estado":"Programado"},
+
+  {"fase":"Fase de grupos","grupo":"Grupo K","fecha":"2026-06-17","hora":"13:00","local":"Portugal","visitante":"República Democrática del Congo","estadio":"NRG Stadium","ciudad":"Houston","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo L","fecha":"2026-06-17","hora":"16:00","local":"Inglaterra","visitante":"Croacia","estadio":"AT&T Stadium","ciudad":"Dallas","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo L","fecha":"2026-06-17","hora":"19:00","local":"Ghana","visitante":"Panamá","estadio":"BMO Field","ciudad":"Toronto","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo K","fecha":"2026-06-17","hora":"22:00","local":"Uzbekistán","visitante":"Colombia","estadio":"Estadio Azteca","ciudad":"Ciudad de México","estado":"Programado"},
+
+  {"fase":"Fase de grupos","grupo":"Grupo A","fecha":"2026-06-18","hora":"12:00","local":"República Checa","visitante":"Sudáfrica","estadio":"Mercedes-Benz Stadium","ciudad":"Atlanta","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo B","fecha":"2026-06-18","hora":"15:00","local":"Suiza","visitante":"Bosnia y Herzegovina","estadio":"SoFi Stadium","ciudad":"Los Ángeles","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo B","fecha":"2026-06-18","hora":"18:00","local":"Canadá","visitante":"Catar","estadio":"BC Place","ciudad":"Vancouver","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo A","fecha":"2026-06-18","hora":"21:00","local":"México","visitante":"República de Corea","estadio":"Estadio Akron","ciudad":"Guadalajara","estado":"Programado"},
+
+  {"fase":"Fase de grupos","grupo":"Grupo D","fecha":"2026-06-19","hora":"15:00","local":"Estados Unidos","visitante":"Australia","estadio":"Lumen Field","ciudad":"Seattle","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo C","fecha":"2026-06-19","hora":"18:00","local":"Escocia","visitante":"Marruecos","estadio":"Gillette Stadium","ciudad":"Boston","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo C","fecha":"2026-06-19","hora":"21:00","local":"Brasil","visitante":"Haití","estadio":"Lincoln Financial Field","ciudad":"Filadelfia","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo D","fecha":"2026-06-19","hora":"00:00","local":"Turquía","visitante":"Paraguay","estadio":"Levi’s Stadium","ciudad":"San Francisco Bay Area","estado":"Programado"},
+
+  {"fase":"Fase de grupos","grupo":"Grupo F","fecha":"2026-06-20","hora":"13:00","local":"Países Bajos","visitante":"Suecia","estadio":"NRG Stadium","ciudad":"Houston","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo E","fecha":"2026-06-20","hora":"16:00","local":"Alemania","visitante":"Costa de Marfil","estadio":"BMO Field","ciudad":"Toronto","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo E","fecha":"2026-06-20","hora":"20:00","local":"Ecuador","visitante":"Curazao","estadio":"Arrowhead Stadium","ciudad":"Kansas City","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo F","fecha":"2026-06-20","hora":"00:00","local":"Túnez","visitante":"Japón","estadio":"Estadio BBVA","ciudad":"Monterrey","estado":"Programado"},
+
+  {"fase":"Fase de grupos","grupo":"Grupo H","fecha":"2026-06-21","hora":"12:00","local":"España","visitante":"Arabia Saudita","estadio":"Mercedes-Benz Stadium","ciudad":"Atlanta","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo G","fecha":"2026-06-21","hora":"15:00","local":"Bélgica","visitante":"Irán","estadio":"SoFi Stadium","ciudad":"Los Ángeles","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo H","fecha":"2026-06-21","hora":"18:00","local":"Uruguay","visitante":"Cabo Verde","estadio":"Hard Rock Stadium","ciudad":"Miami","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo G","fecha":"2026-06-21","hora":"21:00","local":"Nueva Zelanda","visitante":"Egipto","estadio":"BC Place","ciudad":"Vancouver","estado":"Programado"},
+
+  {"fase":"Fase de grupos","grupo":"Grupo J","fecha":"2026-06-22","hora":"13:00","local":"Argentina","visitante":"Austria","estadio":"AT&T Stadium","ciudad":"Dallas","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo I","fecha":"2026-06-22","hora":"17:00","local":"Francia","visitante":"Irak","estadio":"Lincoln Financial Field","ciudad":"Filadelfia","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo I","fecha":"2026-06-22","hora":"20:00","local":"Noruega","visitante":"Senegal","estadio":"MetLife Stadium","ciudad":"Nueva York / Nueva Jersey","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo J","fecha":"2026-06-22","hora":"23:00","local":"Jordania","visitante":"Argelia","estadio":"Levi’s Stadium","ciudad":"San Francisco Bay Area","estado":"Programado"},
+
+  {"fase":"Fase de grupos","grupo":"Grupo K","fecha":"2026-06-23","hora":"13:00","local":"Portugal","visitante":"Uzbekistán","estadio":"NRG Stadium","ciudad":"Houston","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo L","fecha":"2026-06-23","hora":"16:00","local":"Inglaterra","visitante":"Ghana","estadio":"Gillette Stadium","ciudad":"Boston","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo L","fecha":"2026-06-23","hora":"19:00","local":"Panamá","visitante":"Croacia","estadio":"BMO Field","ciudad":"Toronto","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo K","fecha":"2026-06-23","hora":"22:00","local":"Colombia","visitante":"República Democrática del Congo","estadio":"Estadio Akron","ciudad":"Guadalajara","estado":"Programado"},
+
+  {"fase":"Fase de grupos","grupo":"Grupo B","fecha":"2026-06-24","hora":"15:00","local":"Suiza","visitante":"Canadá","estadio":"BC Place","ciudad":"Vancouver","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo B","fecha":"2026-06-24","hora":"15:00","local":"Bosnia y Herzegovina","visitante":"Catar","estadio":"Lumen Field","ciudad":"Seattle","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo C","fecha":"2026-06-24","hora":"18:00","local":"Escocia","visitante":"Brasil","estadio":"Hard Rock Stadium","ciudad":"Miami","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo C","fecha":"2026-06-24","hora":"18:00","local":"Marruecos","visitante":"Haití","estadio":"Mercedes-Benz Stadium","ciudad":"Atlanta","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo A","fecha":"2026-06-24","hora":"21:00","local":"República Checa","visitante":"México","estadio":"Estadio Azteca","ciudad":"Ciudad de México","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo A","fecha":"2026-06-24","hora":"21:00","local":"Sudáfrica","visitante":"República de Corea","estadio":"Estadio BBVA","ciudad":"Monterrey","estado":"Programado"},
+
+  {"fase":"Fase de grupos","grupo":"Grupo E","fecha":"2026-06-25","hora":"16:00","local":"Ecuador","visitante":"Alemania","estadio":"MetLife Stadium","ciudad":"Nueva York / Nueva Jersey","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo E","fecha":"2026-06-25","hora":"16:00","local":"Curazao","visitante":"Costa de Marfil","estadio":"Lincoln Financial Field","ciudad":"Filadelfia","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo F","fecha":"2026-06-25","hora":"19:00","local":"Japón","visitante":"Suecia","estadio":"AT&T Stadium","ciudad":"Dallas","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo F","fecha":"2026-06-25","hora":"19:00","local":"Túnez","visitante":"Países Bajos","estadio":"Arrowhead Stadium","ciudad":"Kansas City","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo D","fecha":"2026-06-25","hora":"22:00","local":"Turquía","visitante":"Estados Unidos","estadio":"SoFi Stadium","ciudad":"Los Ángeles","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo D","fecha":"2026-06-25","hora":"22:00","local":"Paraguay","visitante":"Australia","estadio":"Levi’s Stadium","ciudad":"San Francisco Bay Area","estado":"Programado"},
+
+  {"fase":"Fase de grupos","grupo":"Grupo I","fecha":"2026-06-26","hora":"15:00","local":"Noruega","visitante":"Francia","estadio":"Gillette Stadium","ciudad":"Boston","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo I","fecha":"2026-06-26","hora":"15:00","local":"Senegal","visitante":"Irak","estadio":"BMO Field","ciudad":"Toronto","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo H","fecha":"2026-06-26","hora":"20:00","local":"Cabo Verde","visitante":"Arabia Saudita","estadio":"NRG Stadium","ciudad":"Houston","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo H","fecha":"2026-06-26","hora":"20:00","local":"Uruguay","visitante":"España","estadio":"Estadio Akron","ciudad":"Guadalajara","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo G","fecha":"2026-06-26","hora":"23:00","local":"Egipto","visitante":"Irán","estadio":"Lumen Field","ciudad":"Seattle","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo G","fecha":"2026-06-26","hora":"23:00","local":"Nueva Zelanda","visitante":"Bélgica","estadio":"BC Place","ciudad":"Vancouver","estado":"Programado"},
+
+  {"fase":"Fase de grupos","grupo":"Grupo L","fecha":"2026-06-27","hora":"17:00","local":"Panamá","visitante":"Inglaterra","estadio":"MetLife Stadium","ciudad":"Nueva York / Nueva Jersey","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo L","fecha":"2026-06-27","hora":"17:00","local":"Croacia","visitante":"Ghana","estadio":"Lincoln Financial Field","ciudad":"Filadelfia","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo K","fecha":"2026-06-27","hora":"19:30","local":"Colombia","visitante":"Portugal","estadio":"Hard Rock Stadium","ciudad":"Miami","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo K","fecha":"2026-06-27","hora":"19:30","local":"República Democrática del Congo","visitante":"Uzbekistán","estadio":"Mercedes-Benz Stadium","ciudad":"Atlanta","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo J","fecha":"2026-06-27","hora":"22:00","local":"Argelia","visitante":"Austria","estadio":"Arrowhead Stadium","ciudad":"Kansas City","estado":"Programado"},
+  {"fase":"Fase de grupos","grupo":"Grupo J","fecha":"2026-06-27","hora":"22:00","local":"Jordania","visitante":"Argentina","estadio":"AT&T Stadium","ciudad":"Dallas","estado":"Programado"}
+]
